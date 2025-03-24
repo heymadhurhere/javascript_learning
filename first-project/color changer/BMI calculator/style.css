@@ -1,26 +1,36 @@
 .container {
     width: 575px;
-    height: 100%;
+    height: auto;
     align-items: center;
     background-color: #797978;
-    padding-left: 30px;
+    /* padding-left: 30px; */
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   #height,
   #weight {
     width: 150px;
     height: 25px;
     margin-top: 30px;
+    margin-right: 100px;
   }
   
   #weight-guide {
     display: inline-block;
-    margin-left: 75px;
+    /* margin-left: 75px; */
     margin-top: 25px;
   }
   
   #results {
     font-size: 35px;
-    margin-left: 90px;
+    /* margin-left: 90px; */
     margin-top: 20px;
     color: rgb(241, 241, 241);
   }
@@ -28,7 +38,7 @@
   button {
     width: 150px;
     height: 35px;
-    margin-left: 90px;
+    /* margin-left: 90px; */
     margin-top: 25px;
     background-color: #fff;
     padding: 1px 30px;
@@ -43,5 +53,19 @@
   h1 {
     padding-left: 15px;
     padding-top: 25px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   
