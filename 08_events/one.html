@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    //attach Event
+    // jquery -on
+
+    //type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keycode
+
+    // document.getElementById('owl').onclick = function() { 
+    //     alert("Owl clicked") 
+    // } this feature gives less features
+    /*
+    document.getElementById('images').addEventListener('click', function(e) {
+        console.log("clicked inside the image")
+    }, false)
+    document.getElementById('owl').addEventListener('click', function(e) {
+        console.log("clicked inside the owl")
+        e.stopPropagation(); // propogation will be stopped
+        // default propagation is in bubble format i.e. from the element to the root
+        // if propagation is set to the true, then propagation occurs in the capture format
+    }, false)
+
+    document.getElementById('google').addEventListener('click', function(e) {
+        e.stopPropagation(); // propagation will be stopped and only google will be clicked
+        e.preventDefault(); // prevents the default behavior of the function from occuring
+        console.log("google clicked")
+    }, false)
+    */
+
+    const img = document.querySelector('#images').addEventListener('click', function(e) {
+        console.log(e.target.parentNode); // gives the target of the image
+        // parentNode -> gives the parent node of the selected element
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.tagName);
+            
+        
+        let to_remove = e.target.parentNode
+        to_remove.remove();
+        } // for removing the selected element
+        // to_remove.parentNode.removeChild() // to_remove ka prentNode liye and then uss parentNode ka child remove kiye
+    }, false)
+    
+    </script>
+    </html>
