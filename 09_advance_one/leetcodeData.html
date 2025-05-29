@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table,
+    tr,
+    th {
+        border: 1px solid #e7e7e7;
+    }
+</style>
+<body style="background-color: #212121; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <table style="color: aliceblue; ">
+        <tr>
+          <th>Difficulty</th>
+          <th>Questions</th>
+        </tr>
+        <tr>
+          <td>Easy</td>
+          <td id="easy">Maria Anders</td>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td id="medium">fjbh</td>
+        </tr>
+        <tr>
+            <td>Hard</td>
+            <td id="hard">kjcdbc</td>
+        </tr>
+        <tr>
+            <td>Total</td>
+            <td id="total">jijd</td>
+        </tr>
+      </table>
+</body>
+<script>
+    const reqURL = "https://leetcode-api-faisalshohag.vercel.app/just_madhur"
+    let easyQn
+    let medQn
+    let hardQn
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', reqURL)
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4){
+        const data = JSON.parse(this.responseText)
+        easyQn = data.totalSubmissions[1].count
+        medQn = data.totalSubmissions[2].count
+        hardQn = data.totalSubmissions[3].count
+
+        document.getElementById("easy").innerHTML = easyQn
+        document.getElementById("medium").innerHTML = medQn
+        document.getElementById("hard").innerHTML = hardQn
+        document.getElementById("total").innerHTML = parseInt(easyQn) + parseInt(medQn) + parseInt(hardQn)
+        }
+    }
+    xhr.send()
+</script>
+</html>

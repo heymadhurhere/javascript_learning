@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai or code</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    setTimeout(function() {
+        console.log("Madhur");
+        
+    }, 2000) // waits for 2 seconds and then prints.
+    // setInterval(function() {
+    //     console.log("interval");
+    // }, 3000) // keeps on doing the work at intervals of 3 seconds for indefinite time
+
+    const changeText = setTimeout(function() {
+        document.querySelector('h1').innerHTML = "JS series"
+    }, 2000) // taxt changes after 2 seconds
+    document.querySelector('#stop').addEventListener('click', function() {
+        clearTimeout(changeText); // if stopped clicked before 2seconds, the text will not change
+        console.log("STOPPED");
+        
+    })
+</script>
+</html>
